@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+
+{% block title %}Success{% endblock %}
+
+{% block navbar %}
+    {% include "menu.html" %}
+{% endblock %}
+
+{% block content %}
+    <h4>Success! Welcome {{request.session.user.first_name}} {{request.session.user.last_name}}</h4>
+    <p class="text-success">Successfully logged!</p>
+    <div class="text-end col-11">
+        <a href="/wall" class="btn btn-primary">CodingDojo Wall</a>
+    </div>
+{% endblock %}

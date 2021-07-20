@@ -1,0 +1,88 @@
+
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+
+{% block content %}
+    <div class="row mt-5">
+        <div class="col-6 p-3 bg-light">
+            <h3 class="text-center col-11">Registration</h3>
+            <form action="/register" method="POST" class="ms-3">
+                {% csrf_token %}
+                <div class="col-4 d-inline-block mt-3">
+                    <label class="fw-bold" for="first_name">First Name</label>
+                </div>
+                <div class="col-7 d-inline-block mt-3">    
+                    <input class="form-control" type="text" name="first_name" id="first_name" value="{{request.session.reg_first_name}}">
+                </div>
+
+                <div class="col-4 d-inline-block mt-3">
+                    <label class="fw-bold" for="last_name">Last Name</label>
+                </div>
+                <div class="col-7 d-inline-block mt-3">    
+                    <input class="form-control" type="text" name="last_name" id="last_name" value="{{request.session.reg_last_name}}">
+                </div>
+
+                <div class="col-4 d-inline-block mt-3">
+                    <label class="fw-bold" for="birthday">Birthday</label>
+                </div>
+                <div class="col-7 d-inline-block mt-3">    
+                    <input class="form-control" type="date" name="birthday" id="birthday" value="{{request.session.reg_birthday}}">
+                </div>
+
+                <div class="col-4 d-inline-block mt-3">
+                    <label class="fw-bold" for="email">Email</label>
+                </div>
+                <div class="col-7 d-inline-block mt-3">    
+                    <input class="form-control" type="text" name="email" id="email" value="{{request.session.reg_email}}">
+                </div>
+
+                <div class="col-4 d-inline-block mt-3">
+                    <label class="fw-bold" for="password">Password</label>
+                </div>
+                <div class="col-7 d-inline-block mt-3">    
+                    <input class="form-control" type="password" name="password" id="password">
+                </div>
+
+                <div class="col-4 d-inline-block mt-3">
+                    <label class="fw-bold" for="cpassword">Confirm Password</label>
+                </div>
+                <div class="col-7 d-inline-block mt-3">    
+                    <input class="form-control" type="password" name="cpassword" id="cpassword">
+                </div>
+
+                <div class="text-end mt-3 col-11">
+                    <button type="submit" class="btn btn-primary text-center">Register</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-6 p-3 bg-light">
+            <h3 class="text-center col-11">Login</h3>
+
+            <form action="/login" method="POST" class="ms-3">
+                {% csrf_token %}
+                <div class="col-4 d-inline-block mt-3">
+                    <label class="fw-bold">Email</label>
+                </div>
+                <div class="col-7 d-inline-block mt-3">    
+                    <input class="form-control" name="email" type="text">
+                </div>
+
+                <div class="col-4 d-inline-block mt-3">
+                    <label class="fw-bold">Password</label>
+                </div>
+                <div class="col-7 d-inline-block mt-3">    
+                    <input class="form-control" name="password" type="password">
+                </div>
+
+                <div class="text-end mt-3 col-11">
+                    <button type="submit" class="btn btn-primary text-center">Login</button>
+                </div>
+            </form>
+        </div>
+        <div class="text-end col-12 mt-4">
+            <a href="/wall" class="btn btn-primary">CodingDojo Wall</a>
+        </div>
+    </div>
+{% endblock %}
